@@ -9,7 +9,7 @@ import (
 	"github.com/merliot/device/led"
 )
 
-//go:embed css go.mod images js template
+//go:embed css go.mod html images js template
 var fs embed.FS
 
 var targets = []string{"demo"}
