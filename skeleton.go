@@ -12,7 +12,7 @@ import (
 //go:embed css go.mod html images js template
 var fs embed.FS
 
-var targets = []string{"demo"}
+var targets = []string{"demo", "nano-rp2040"}
 
 type Skeleton struct {
 	*device.Device

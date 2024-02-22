@@ -37,8 +37,20 @@ class Skeleton extends WebSocketController {
 		}
 	}
 
+	showGpio() {
+		if (this.viewMode === ViewMode.ViewFull) {
+			let gpio = document.getElementById("gpio")
+			if (this.state.Led.Gpio === "") {
+				gpio.style.display = "none"
+			} else {
+				gpio.textContent = this.state.Led.Gpio
+			}
+		}
+	}
+
 	showLed() {
 		this.img.src = this.state.Led.State ? "images/LED-on.png" : "images/LED-off.png"
+		this.showGpio()
 		this.updateBtn()
 	}
 
