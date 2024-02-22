@@ -1,1 +1,7 @@
-/* Device CSS */
+#circuit {
+	align-items: center;
+}
+
+#led-btn {
+	margin: 0;
+}
