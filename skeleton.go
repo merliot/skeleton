@@ -60,9 +60,15 @@ func (s *Skeleton) Subscribers() dean.Subscribers {
 	}
 }
 
+func (s *Skeleton) parseParams() {
+	values := s.ParseDeployParams()
+	s.Led.Gpio = s.ParamFirstValue(values, "gpio")
+	s.Led.Configure()
+}
+
 func (s *Skeleton) Setup() {
 	s.Device.Setup()
-	s.Led.Configure()
+	s.parseParams()
 }
 
 func (s *Skeleton) Run(i *dean.Injector) {
