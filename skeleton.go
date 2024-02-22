@@ -16,7 +16,7 @@ var targets = []string{"demo"}
 
 type Skeleton struct {
 	*device.Device
-	led.Led
+	Led led.Led
 }
 
 type MsgClick struct {
@@ -47,7 +47,7 @@ func (s *Skeleton) getState(msg *dean.Msg) {
 func (s *Skeleton) click(msg *dean.Msg) {
 	msg.Unmarshal(&s.Led)
 	if s.IsMetal() {
-		s.Led.Set(s.State)
+		s.Led.Set(s.Led.State)
 	}
 	msg.Broadcast()
 }
