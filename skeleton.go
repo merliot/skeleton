@@ -61,8 +61,7 @@ func (s *Skeleton) Subscribers() dean.Subscribers {
 }
 
 func (s *Skeleton) parseParams() {
-	values := s.ParseDeployParams()
-	s.Led.Gpio = s.ParamFirstValue(values, "gpio")
+	s.Led.Gpio = s.ParamFirstValue("gpio")
 	s.Led.Configure()
 }
 

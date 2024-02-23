@@ -11,7 +11,6 @@ class Skeleton extends WebSocketController {
 		if (this.state.DeployParams === "") {
 			return
 		}
-		this.img = document.getElementById("led-img")
 		this.setupBtn()
 		this.showLed()
 	}
@@ -40,16 +39,30 @@ class Skeleton extends WebSocketController {
 	showGpio() {
 		if (this.viewMode === ViewMode.ViewFull) {
 			let gpio = document.getElementById("gpio")
-			if (this.state.Led.Gpio === "") {
-				gpio.style.display = "none"
-			} else {
+			if (this.state.Led.Gpio !== "") {
+				gpio.classList.remove("hidden")
 				gpio.textContent = this.state.Led.Gpio
 			}
 		}
 	}
 
+	getTarget() {
+		const params = new URLSearchParams(this.state.DeployParams);
+		return params.get('target');
+	}
+
+	showImg() {
+		let img = document.getElementById("led-img")
+		let onoff = this.state.Led.State ? "on" : "off"
+		if (this.state.Led.Gpio === "") {
+			img.src = "images/" + this.getTarget() + "-" + onoff + ".png"
+		} else {
+			img.src = "images/demo-" + onoff + ".png"
+		}
+	}
+
 	showLed() {
-		this.img.src = this.state.Led.State ? "images/LED-on.png" : "images/LED-off.png"
+		this.showImg()
 		this.showGpio()
 		this.updateBtn()
 	}
