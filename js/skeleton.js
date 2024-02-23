@@ -46,19 +46,10 @@ class Skeleton extends WebSocketController {
 		}
 	}
 
-	getTarget() {
-		const params = new URLSearchParams(this.state.DeployParams);
-		return params.get('target');
-	}
-
 	showImg() {
 		let img = document.getElementById("led-img")
 		let onoff = this.state.Led.State ? "on" : "off"
-		if (this.state.Led.Gpio === "") {
-			img.src = "images/" + this.getTarget() + "-" + onoff + ".png"
-		} else {
-			img.src = "images/demo-" + onoff + ".png"
-		}
+		img.src = "images/led-" + onoff + ".png"
 	}
 
 	showLed() {
