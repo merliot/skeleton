@@ -30,5 +30,5 @@ func main() {
 	s.SetWifiAuth(ssids, passphrases)
 	s.SetDialURLs(dialURLs)
 	s.SetWsScheme(wsScheme)
-	runner.Run(s, port, portPrime, user, passwd, dialURLs, wsScheme)
+	runner.Run(s.Device, port, portPrime, user, passwd, dialURLs, wsScheme)
 }
