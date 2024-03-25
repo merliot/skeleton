@@ -1,16 +1,12 @@
 package skeleton
 
 import (
-	"embed"
 	"net/http"
 
 	"github.com/merliot/dean"
 	"github.com/merliot/device"
 	"github.com/merliot/device/led"
 )
-
-//go:embed css go.mod html images js template
-var fs embed.FS
 
 var targets = []string{"demo", "nano-rp2040", "wioterminal"}
 
