@@ -1,6 +1,7 @@
 package skeleton
 
 import (
+	"fmt"
 	"net/http"
 
 	"github.com/merliot/dean"
@@ -21,7 +22,7 @@ type MsgClick struct {
 }
 
 func New(id, model, name string) dean.Thinger {
-	println("NEW SKELETON")
+	fmt.Println("NEW SKELETON")
 	return &Skeleton{
 		Device: device.New(id, model, name, fs, targets).(*device.Device),
 	}
