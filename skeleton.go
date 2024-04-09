@@ -22,7 +22,7 @@ type MsgClick struct {
 }
 
 func New(id, model, name string) dean.Thinger {
-	fmt.Println("NEW SKELETON")
+	fmt.Println("NEW SKELETON\r")
 	return &Skeleton{
 		Device: device.New(id, model, name, fs, targets).(*device.Device),
 	}
