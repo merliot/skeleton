@@ -65,6 +65,9 @@ class Skeleton extends WebSocketController {
 	}
 
 	click() {
+		if (!this.state.Online) {
+			return
+		}
 		var led = this.state.Led
 		led.State = !led.State
 		this.webSocket.send(JSON.stringify({Path: "click", State: led.State}))
