@@ -59,12 +59,16 @@ func (s *Skeleton) Subscribers() dean.Subscribers {
 
 func (s *Skeleton) parseParams() {
 	s.Led.Gpio = s.ParamFirstValue("gpio")
+}
+
+func (s *Skeleton) configure() {
 	s.Led.Configure()
 }
 
 func (s *Skeleton) Setup() {
 	s.Device.Setup()
 	s.parseParams()
+	s.configure()
 }
 
 func (s *Skeleton) Run(i *dean.Injector) {
