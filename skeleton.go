@@ -32,21 +32,21 @@ func (s *Skeleton) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	s.API(w, r, s)
 }
 
-func (s *Skeleton) save(msg *dean.Msg) {
-	msg.Unmarshal(s).Broadcast()
+func (s *Skeleton) save(pkt *dean.Packet) {
+	pkt.Unmarshal(s).Broadcast()
 }
 
-func (s *Skeleton) getState(msg *dean.Msg) {
+func (s *Skeleton) getState(pkt *dean.Packet) {
 	s.Path = "state"
-	msg.Marshal(s).Reply()
+	pkt.Marshal(s).Reply()
 }
 
-func (s *Skeleton) click(msg *dean.Msg) {
-	msg.Unmarshal(&s.Led)
+func (s *Skeleton) click(pkt *dean.Packet) {
+	pkt.Unmarshal(&s.Led)
 	if s.IsMetal() {
 		s.Led.Set(s.Led.State)
 	}
-	msg.Broadcast()
+	pkt.Broadcast()
 }
 
 func (s *Skeleton) Subscribers() dean.Subscribers {
