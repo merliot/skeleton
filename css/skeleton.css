@@ -1,15 +1,15 @@
-#circuit {
+.model-skeleton #circuit {
 	align-items: center;
 }
 
-#led-btn {
+.model-skeleton #led-btn {
 	margin: 20px 0 0 0;
 }
 
-#led-img {
+.model-skeleton #led-img {
 	height: 148px;
 }
 
-.tile #led-img {
+.model-skeleton .tile #led-img {
 	height: 120px;
 }
